@@ -420,6 +420,26 @@ body {
 .lightbox img{max-width:95vw;max-height:95vh;object-fit:contain;border-radius:10px}
 .lightbox-close{position:absolute;top:20px;right:30px;font-size:32px;color:#fff;cursor:pointer;font-weight:bold}
 
+
+/* ===== MOBILE IMPROVEMENTS ===== */
+@media (max-width: 768px){
+  body{grid-template-columns:1fr!important;}
+  .sidebar{position:relative!important;height:auto!important;padding:24px 18px!important;}
+  .main{padding:24px 16px 50px!important;max-width:100%!important;}
+  .hero-head{font-size:28px!important;line-height:1.25!important;}
+  .hero-sub{font-size:14px!important;}
+  .sec-title{font-size:22px!important;}
+  .stats-row{grid-template-columns:1fr!important;}
+  .proj-band,.proj-body,.exp-card,.tr-card,.skill-group{padding-left:16px!important;padding-right:16px!important;}
+  .proj-top-row,.exp-meta{flex-direction:column!important;align-items:flex-start!important;}
+  .image-gallery{grid-template-columns:1fr!important;}
+  .learn-grid{grid-template-columns:1fr!important;}
+  .skill-tags,.skill-tags-lg,.impact-row,.dataset-row{gap:8px!important;}
+  .photo-ring{width:110px!important;height:110px!important;}
+  .s-name{font-size:18px!important;}
+  .s-nav a{padding:10px!important;font-size:13px!important;}
+}
+
 </style>
 </head>
 <body>
@@ -431,8 +451,8 @@ body {
   <div class="photo-wrap">
     <div class="photo-ring">
       <div class="photo-inner">
-        
-        <img id="profilePhoto" src="images/pp.jpeg" alt="Fiya Niswatus Sholihah" onload="showProfilePhoto(this)" />
+       
+        <img id="profilePhoto" src="pp.jpeg" alt="Fiya Niswatus Sholihah" onload="showProfilePhoto(this)" />
         <span class="photo-ph" id="photo-ph">👤</span>
       </div>
     </div>
@@ -519,7 +539,7 @@ body {
       <em>Healthcare × AI</em>
     </div>
     <p class="hero-sub">
-      Experience in medical device R&amp;D, computer vision, NLP, and biomedical signal processing —
+      Experienced in medical device R&amp;D, computer vision, NLP, and biomedical signal processing —
       turning engineering principles and data into impactful real-world solutions.
     </p>
 
@@ -639,7 +659,7 @@ body {
           A smart parking solution using computer vision and YOLO object detection to identify available parking spaces in real-time, helping drivers reduce search time and improving overall parking space utilization.
         </p>
 
-        
+       
         <button class="gallery-toggle" onclick="toggleGallery('g1',this)">
           🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
         </button>
@@ -650,11 +670,11 @@ body {
           </div>
           <div class="img-slot">
             <img src="images/dataset spark.png" alt="SPARK Dataset" data-label="Dataset" onload="imgLoaded(this)"/>
-            
+           
           </div>
           <div class="img-slot">
             <img src="images/train spark.png" alt="SPARK Train Model" data-label="Train model" onload="imgLoaded(this)"/>
-            
+            <!--<div class="img-ph">📸<br/>Ganti src="":<br/><code>"dataset_spark.jpg"</code></div>-->
           </div>
           <div class="img-slot">
             <img src="images/bmc.png" alt="SPARK BMC" data-label="SPARK BMC" onload="imgLoaded(this)"/>
@@ -725,6 +745,7 @@ body {
           Developed a machine learning system to classify fatigue vs. non-fatigue conditions using EMG signals from the erector spinae muscles of motorcycle riders — exploring fatigue detection as a supporting factor for road safety and accident prevention.
         </p>
 
+        
         <button class="gallery-toggle" onclick="toggleGallery('g2',this)">
           🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
         </button>
@@ -788,17 +809,18 @@ body {
         </div>
         <div class="proj-title">NLP for Mental Disorder Classification Based on K-Nearest Neighbor Algorithm</div>
         <!-- Role Row -->
-        <!-- <div class="role-row">
+        <div class="role-row">
           <span class="role-label">My Role</span>
           <span class="role-chip"><span class="ri">🧑‍💻</span> Full-Stack NLP Researcher (Solo)</span>
-        </div> -->
-      </div> 
+        </div>
+      </div>
 
       <div class="proj-body">
         <p class="proj-desc">
           Developed an NLP model to classify mental health text into depression and anxiety categories. Dataset collected from real user consultations on Alodokter's "Tanya Dokter" platform, processed through a complete NLP pipeline and KNN classification algorithm.
         </p>
 
+       
         <button class="gallery-toggle" onclick="toggleGallery('g3',this)">
           🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
         </button>
@@ -839,7 +861,7 @@ body {
           <div class="proj-sec-title">Impact</div>
           <div class="impact-row">
             <span class="imp-badge teal">End-to-End NLP Pipeline</span>
-            <span class="imp-badge purple">Indonesian-Language Dataset</span>
+            <span class="imp-badge purple">Healthcare dataset for research purpose</span>
           </div>
         </div>
 
