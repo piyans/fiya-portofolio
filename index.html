@@ -431,14 +431,7 @@ body {
   <div class="photo-wrap">
     <div class="photo-ring">
       <div class="photo-inner">
-        <!--
-          ╔══════════════════════════════════════════╗
-          ║  CARA TAMBAH FOTO PROFIL                 ║
-          ║  1. Simpan foto di folder sama dg HTML   ║
-          ║  2. Ganti src="" → src="nama_foto.jpg"   ║
-          ║  3. Save & refresh browser               ║
-          ╚══════════════════════════════════════════╝
-        -->
+        
         <img id="profilePhoto" src="images/pp.jpeg" alt="Fiya Niswatus Sholihah" onload="showProfilePhoto(this)" />
         <span class="photo-ph" id="photo-ph">👤</span>
       </div>
@@ -470,10 +463,7 @@ body {
     <a class="c-item" href="https://github.com/piyans" target="_blank">
       <span class="c-icon">GH</span>github.com/piyans
     </a>
-    <!-- <span class="c-item">
-      <span class="c-icon">📍</span>Kebumen, Jawa Tengah
-    </span>
-  </div> -->
+    
 
   <div class="divider"></div>
 
@@ -567,10 +557,7 @@ body {
         <div class="stat-num">3</div>
         <div class="stat-lbl">Medical Device &amp; <br/>Monitoring System</div>
       </div>
-      <!-- <div class="stat-card">
-        <div class="stat-num">97%</div>
-        <div class="stat-lbl">ML Accuracy<br/>(EMG Project)</div>
-      </div> -->
+      
     </div> 
 
     <p class="sec-eyebrow">About Me</p>
@@ -652,31 +639,22 @@ body {
           A smart parking solution using computer vision and YOLO object detection to identify available parking spaces in real-time, helping drivers reduce search time and improving overall parking space utilization.
         </p>
 
-        <!-- ╔══════════════════════════════════════════════════════╗
-             ║  CARA TAMBAH GAMBAR — PROJECT 1 (SPARK)             ║
-             ║                                                      ║
-             ║  1. Taruh file gambar di folder yang sama dg HTML.   ║
-             ║  2. Pada setiap <img> di bawah, isi:                 ║
-             ║     src=""  →  src="nama_file.jpg"                   ║
-             ║     data-label="" → label yang muncul di bawah foto  ║
-             ║  3. Save → refresh browser. Foto muncul otomatis.   ║
-             ║  4. Placeholder teks hilang sendiri.                 ║
-             ╚══════════════════════════════════════════════════════╝ -->
+        
         <button class="gallery-toggle" onclick="toggleGallery('g1',this)">
           🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
         </button>
         <div class="image-gallery" id="g1">
           <div class="img-slot">
             <img src="images/1st final juara pengumuman.jpeg" alt="1st Place Announcement" data-label="🏆 Juara 1" onload="imgLoaded(this)"/>
-            <!-- <div class="img-ph">📸<br/>src="images/1st final juara pengumuman.jpeg":<br/><code>""</code></div>-->
+            
           </div>
           <div class="img-slot">
             <img src="images/dataset spark.png" alt="SPARK Dataset" data-label="Dataset" onload="imgLoaded(this)"/>
-            <!--<div class="img-ph">📸<br/>Ganti src="":<br/><code>"Startup_campus_1.jpg"</code></div>-->
+            
           </div>
           <div class="img-slot">
             <img src="images/train spark.png" alt="SPARK Train Model" data-label="Train model" onload="imgLoaded(this)"/>
-            <!--<div class="img-ph">📸<br/>Ganti src="":<br/><code>"dataset_spark.jpg"</code></div>-->
+            
           </div>
           <div class="img-slot">
             <img src="images/bmc.png" alt="SPARK BMC" data-label="SPARK BMC" onload="imgLoaded(this)"/>
@@ -747,10 +725,6 @@ body {
           Developed a machine learning system to classify fatigue vs. non-fatigue conditions using EMG signals from the erector spinae muscles of motorcycle riders — exploring fatigue detection as a supporting factor for road safety and accident prevention.
         </p>
 
-        <!-- ╔══════════════════════════════════════════════════════╗
-             ║  CARA TAMBAH GAMBAR — PROJECT 2 (EMG)               ║
-             ║  Contoh: grafik sinyal EMG, confusion matrix, dll.  ║
-             ╚══════════════════════════════════════════════════════╝ -->
         <button class="gallery-toggle" onclick="toggleGallery('g2',this)">
           🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
         </button>
@@ -759,10 +733,7 @@ body {
             <img src="images/emg.png" alt="EMG Signal Process" data-label="Data Acquisition EMG" onload="imgLoaded(this)"/>
             <div class="img-ph">📸<br/>Ganti src="" dg nama file gambar proyek EMG</div>
           </div>
-          <!-- <div class="img-slot">
-            <img src="" alt="EMG Classification Results" data-label="Hasil Klasifikasi" onload="imgLoaded(this)"/>
-            <div class="img-ph">📸<br/>Confusion matrix / grafik akurasi</div>
-          </div> -->
+          
         </div>
 
         <div class="proj-sec">
@@ -817,21 +788,17 @@ body {
         </div>
         <div class="proj-title">NLP for Mental Disorder Classification Based on K-Nearest Neighbor Algorithm</div>
         <!-- Role Row -->
-        <div class="role-row">
+        <!-- <div class="role-row">
           <span class="role-label">My Role</span>
-          <!--<span class="role-chip"><span class="ri">🧑‍💻</span> Full-Stack NLP Researcher (Solo)</span>-->
-        </div>
-      </div>
+          <span class="role-chip"><span class="ri">🧑‍💻</span> Full-Stack NLP Researcher (Solo)</span>
+        </div> -->
+      </div> 
 
       <div class="proj-body">
         <p class="proj-desc">
           Developed an NLP model to classify mental health text into depression and anxiety categories. Dataset collected from real user consultations on Alodokter's "Tanya Dokter" platform, processed through a complete NLP pipeline and KNN classification algorithm.
         </p>
 
-        <!-- ╔══════════════════════════════════════════════════════╗
-             ║  CARA TAMBAH GAMBAR — PROJECT 3 (NLP Thesis)        ║
-             ║  Contoh: diagram pipeline, visualisasi PCA, dll.    ║
-             ╚══════════════════════════════════════════════════════╝ -->
         <button class="gallery-toggle" onclick="toggleGallery('g3',this)">
           🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
         </button>
