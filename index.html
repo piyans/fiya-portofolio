@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fiya Niswatus Sholihah — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+<style>
+:root {
+  --bg:       #0B1622;
+  --surface:  #101E2E;
+  --card:     #152234;
+  --card2:    #1A2A3E;
+  --accent:   #2EC4B6;
+  --accent2:  #5EE7DC;
+  --gold:     #F5A623;
+  --lavender: #A78BFA;
+  --coral:    #F87171;
+  --text:     #EEF0F4;
+  --muted:    #7A8FA6;
+  --border:   rgba(46,196,182,0.15);
+  --border2:  rgba(255,255,255,0.07);
+  --r:        10px;
+  --rl:       18px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  min-height: 100vh;
+}
+
+/* ─── SIDEBAR ─── */
+.sidebar {
+  position: sticky; top: 0; height: 100vh; overflow-y: auto;
+  background: var(--surface);
+  border-right: 1px solid var(--border2);
+  display: flex; flex-direction: column;
+  padding: 32px 24px 28px;
+  scrollbar-width: none;
+}
+.sidebar::-webkit-scrollbar { display: none; }
+
+/* ── Photo ── */
+.photo-wrap {
+  display: flex; flex-direction: column; align-items: center; margin-bottom: 18px;
+}
+.photo-ring {
+  width: 90px; height: 90px; border-radius: 50%;
+  background: conic-gradient(var(--accent) 0deg, var(--lavender) 180deg, var(--accent) 360deg);
+  padding: 2.5px; margin-bottom: 14px; flex-shrink: 0;
+}
+.photo-inner {
+  width: 100%; height: 100%; border-radius: 50%;
+  background: var(--surface); overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+/*
+  HOW TO ADD PROFILE PHOTO:
+  1. Taruh file foto di folder yang sama dengan HTML ini.
+  2. Ubah src="" di bawah jadi src="nama_foto.jpg"
+  3. Save → refresh browser.
+*/
+.photo-inner img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.photo-ph { font-size: 32px; color: var(--muted); }
+
+.s-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px; font-weight: 700; text-align: center; line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+.s-role {
+  font-size: 10.5px; color: var(--accent); text-align: center;
+  margin-top: 4px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+.divider { width: 100%; height: 1px; background: var(--border2); margin: 18px 0; }
+
+/* ── Nav ── */
+.s-nav { display: flex; flex-direction: column; gap: 2px; }
+.s-nav a {
+  display: flex; align-items: center; gap: 9px;
+  font-size: 12px; color: var(--muted); text-decoration: none;
+  padding: 7px 10px; border-radius: 8px; transition: all .2s;
+  font-weight: 500; letter-spacing: 0.02em;
+}
+.s-nav a:hover, .s-nav a.active { color: var(--accent); background: rgba(46,196,182,0.08); }
+.s-nav a .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); opacity: 0; flex-shrink: 0; transition: opacity .2s; }
+.s-nav a:hover .dot, .s-nav a.active .dot { opacity: 1; }
+
+/* ── Contact ── */
+.s-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+.contact-list { display: flex; flex-direction: column; gap: 6px; }
+.c-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; color: var(--muted); text-decoration: none; transition: color .2s;
+  word-break: break-all; line-height: 1.3;
+}
+.c-item:hover { color: var(--accent); }
+.c-icon {
+  width: 24px; height: 24px; border-radius: 6px;
+  background: rgba(46,196,182,0.08); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; flex-shrink: 0; font-weight: 700; color: var(--accent);
+}
+
+/* ── Tags ── */
+.tag-wrap { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+.tag {
+  font-size: 10px; padding: 2px 8px; border-radius: 20px;
+  background: rgba(46,196,182,0.08); border: 1px solid var(--border);
+  color: var(--accent); font-weight: 500;
+}
+.tag.soft { color: var(--text); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+
+/* ── Education badge ── */
+.edu-block { font-size: 11px; color: var(--muted); line-height: 1.7; }
+.edu-block strong { color: var(--text); font-weight: 500; }
+.award-badge {
+  margin-top: 10px; padding: 10px 12px; border-radius: 10px;
+  background: rgba(245,166,35,0.07); border: 1px solid rgba(245,166,35,0.22);
+}
+.award-badge .award-title { font-size: 11.5px; font-weight: 600; color: var(--gold); margin-bottom: 2px; }
+.award-badge .award-sub { font-size: 10.5px; color: rgba(245,166,35,0.7); line-height: 1.5; }
+
+/* ─── MAIN ─── */
+.main { padding: 52px 56px 90px; max-width: 860px; }
+
+/* ── Section ── */
+.section { margin-bottom: 72px; }
+.sec-eyebrow {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+}
+.sec-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 26px; font-weight: 700; line-height: 1.2; color: var(--text);
+  margin-bottom: 22px;
+}
+
+/* ── Hero ── */
+.hero-head {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 38px; font-weight: 700; line-height: 1.15; margin-bottom: 18px;
+}
+.hero-head em { font-style: normal; color: var(--accent); }
+.hero-sub { font-size: 15px; color: var(--muted); line-height: 1.8; max-width: 560px; }
+
+/* ── Ticker ── */
+.ticker-wrap {
+  overflow: hidden; width: 100%;
+  border-top: 1px solid var(--border2);
+  border-bottom: 1px solid var(--border2);
+  padding: 10px 0; margin: 36px 0 48px; position: relative;
+}
+.ticker-wrap::before, .ticker-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 1; pointer-events: none;
+}
+.ticker-wrap::before { left: 0; background: linear-gradient(to right, var(--bg), transparent); }
+.ticker-wrap::after  { right: 0; background: linear-gradient(to left, var(--bg), transparent); }
+.ticker-track { display: flex; gap: 28px; animation: scroll 24s linear infinite; width: max-content; }
+.ticker-track:hover { animation-play-state: paused; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.t-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+  color: var(--muted); text-transform: uppercase; white-space: nowrap;
+}
+.t-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); }
+
+/* ── About ── */
+.about-body { font-size: 14.5px; color: rgba(238,240,244,0.78); line-height: 1.9; max-width: 620px; }
+.about-body p + p { margin-top: 14px; }
+
+/* ─── STATS ROW ─── */
+.stats-row {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 56px;
+}
+.stat-card {
+  background: var(--card); border: 1px solid var(--border2); border-radius: var(--rl);
+  padding: 20px; text-align: center;
+}
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif; font-size: 30px; font-weight: 700;
+  color: var(--accent); line-height: 1;
+}
+.stat-lbl { font-size: 11px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+/* ─── EXPERIENCE ─── */
+.exp-card {
+  background: var(--card); border: 1px solid var(--border2); border-radius: var(--rl);
+  padding: 24px 26px; margin-bottom: 16px; transition: border-color .25s;
+}
+.exp-card:hover { border-color: rgba(46,196,182,0.3); }
+.exp-meta { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+.exp-left {}
+.exp-title { font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); }
+.exp-company { font-size: 12px; color: var(--accent); font-weight: 500; margin-top: 2px; }
+.exp-date-badge {
+  font-size: 10.5px; color: var(--muted); background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border2); border-radius: 20px; padding: 3px 10px; white-space: nowrap;
+  align-self: flex-start;
+}
+.exp-list { padding-left: 16px; display: flex; flex-direction: column; gap: 7px; }
+.exp-list li { font-size: 12.5px; color: rgba(238,240,244,0.7); line-height: 1.65; }
+
+/* ─── PROJECT CARDS — REDESIGNED ─── */
+.project-card {
+  background: var(--card); border: 1px solid var(--border2);
+  border-radius: var(--rl); margin-bottom: 28px;
+  overflow: hidden; transition: border-color .3s;
+  position: relative;
+}
+.project-card:hover { border-color: rgba(46,196,182,0.35); }
+
+/* accent bar kiri */
+.project-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 3px; height: 100%; background: var(--accent);
+  opacity: 0; transition: opacity .3s;
+}
+.project-card:hover::before { opacity: 1; }
+
+/* ── Project Header Band ── */
+.proj-band {
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border2);
+  display: flex; flex-direction: column; gap: 10px;
+}
+.proj-top-row {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+}
+.proj-badges { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+.proj-num {
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent); background: rgba(46,196,182,0.1); border: 1px solid rgba(46,196,182,0.25);
+  border-radius: 20px; padding: 2px 10px;
+}
+
+/* Group / Individual badge */
+.type-badge {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+  border-radius: 20px; padding: 3px 10px;
+}
+.type-badge.group { color: #818CF8; background: rgba(129,140,248,0.1); border: 1px solid rgba(129,140,248,0.25); }
+.type-badge.solo  { color: #34D399; background: rgba(52,211,153,0.1); border: 1px solid rgba(52,211,153,0.25); }
+.type-badge .type-icon { font-size: 13px; }
+
+/* Competition label */
+.comp-label {
+  font-size: 10px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--gold); background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.25);
+  border-radius: 20px; padding: 3px 10px;
+}
+
+.proj-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 17px; font-weight: 700; line-height: 1.3; color: var(--text);
+}
+
+/* ── Role Row ── */
+.role-row {
+  display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.role-label { font-size: 10px; color: var(--muted); font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase; }
+.role-chip {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; font-weight: 600; color: var(--lavender);
+  background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25);
+  border-radius: 20px; padding: 2px 10px;
+}
+.role-chip .ri { font-size: 12px; }
+
+/* ── Project Body ── */
+.proj-body { padding: 20px 24px; }
+
+.proj-desc {
+  font-size: 13.5px; color: rgba(238,240,244,0.72); line-height: 1.8;
+  margin-bottom: 20px; border-left: 2px solid rgba(46,196,182,0.2);
+  padding-left: 14px;
+}
+
+/* ── Gallery toggle ── */
+.gallery-toggle {
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 6px 14px; border-radius: 8px;
+  border: 1px solid var(--border); background: rgba(46,196,182,0.06);
+  color: var(--accent); font-size: 11.5px; font-weight: 500;
+  cursor: pointer; margin-bottom: 16px; transition: all .2s;
+  font-family: 'Inter', sans-serif;
+}
+.gallery-toggle:hover { background: rgba(46,196,182,0.14); border-color: rgba(46,196,182,0.45); }
+.gt-arrow { font-size: 9px; transition: transform .25s; }
+.gallery-toggle.open .gt-arrow { transform: rotate(90deg); }
+
+.image-gallery {
+  display: none; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 8px; margin-bottom: 20px;
+}
+.image-gallery.visible { display: grid; }
+
+.img-slot {
+  border-radius: var(--r); overflow: hidden; border: 1px solid var(--border2);
+  background: var(--card2); aspect-ratio: 4/3;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;
+}
+.img-slot img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.img-slot-label {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: rgba(11,22,34,0.8); backdrop-filter: blur(4px);
+  font-size: 9.5px; color: var(--muted); padding: 5px 8px; display: none;
+}
+.img-ph { text-align: center; color: var(--muted); font-size: 10px; padding: 10px; line-height: 1.5; }
+.img-ph code { font-size: 9px; color: var(--accent); font-family: monospace; display: block; margin-top: 4px; }
+
+/* ── Proj sub-sections ── */
+.proj-sec {
+  margin-top: 18px;
+}
+.proj-sec-title {
+  display: flex; align-items: center; gap: 7px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: 9px;
+}
+.proj-sec-title::before {
+  content: ''; display: inline-block; width: 18px; height: 1.5px; background: var(--accent);
+}
+.proj-ul { padding-left: 16px; display: flex; flex-direction: column; gap: 6px; }
+.proj-ul li { font-size: 12.5px; color: rgba(238,240,244,0.72); line-height: 1.65; }
+
+/* ── Impact badges ── */
+.impact-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.imp-badge {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11.5px; font-weight: 600;
+  padding: 5px 13px; border-radius: 20px;
+}
+.imp-badge.gold  { color: var(--gold); background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.25); }
+.imp-badge.teal  { color: var(--accent); background: rgba(46,196,182,0.1); border: 1px solid rgba(46,196,182,0.2); }
+.imp-badge.purple { color: var(--lavender); background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.25); }
+
+/* ── Learn chips ── */
+.learn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 8px; }
+.learn-chip {
+  background: var(--card2); border: 1px solid var(--border2); border-radius: 8px;
+  padding: 8px 12px; font-size: 11.5px; color: rgba(238,240,244,0.75); line-height: 1.5;
+}
+
+/* ── Skill tags ── */
+.skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--border2); }
+.s-tag {
+  font-size: 10.5px; padding: 3px 9px; border-radius: 20px;
+  background: rgba(46,196,182,0.07); border: 1px solid rgba(46,196,182,0.18);
+  color: var(--accent); font-weight: 500;
+}
+
+/* ── Dataset pill row ── */
+.dataset-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.ds-pill {
+  font-size: 11px; padding: 3px 11px; border-radius: 20px;
+  background: rgba(255,255,255,0.04); border: 1px solid var(--border2);
+  color: var(--muted);
+}
+
+/* ─── TRAINING ─── */
+.training-grid { display: grid; gap: 14px; }
+.tr-card {
+  background: var(--card); border: 1px solid var(--border2); border-radius: var(--r);
+  padding: 18px 20px; display: flex; gap: 14px; align-items: flex-start;
+  transition: border-color .25s;
+}
+.tr-card:hover { border-color: rgba(46,196,182,0.3); }
+.tr-icon {
+  width: 38px; height: 38px; border-radius: 10px;
+  background: rgba(46,196,182,0.08); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;
+}
+.tr-title { font-family: 'Space Grotesk', sans-serif; font-size: 13px; font-weight: 600; margin-bottom: 2px; }
+.tr-org { font-size: 11.5px; color: var(--accent); font-weight: 500; }
+.tr-date { font-size: 10.5px; color: var(--muted); margin-top: 2px; }
+
+/* ─── SKILLS SECTION ─── */
+.skill-grid { display: grid; gap: 16px; }
+.skill-group { background: var(--card); border: 1px solid var(--border2); border-radius: var(--r); padding: 18px 20px; }
+.skill-group-title { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.skill-tags-lg { display: flex; flex-wrap: wrap; gap: 7px; }
+.s-tag-lg {
+  font-size: 11.5px; padding: 4px 12px; border-radius: 20px;
+  background: rgba(46,196,182,0.08); border: 1px solid rgba(46,196,182,0.2);
+  color: var(--accent); font-weight: 500;
+}
+.s-tag-lg.soft { color: var(--text); border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+.s-tag-lg.med { color: var(--lavender); border-color: rgba(167,139,250,0.25); background: rgba(167,139,250,0.08); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 820px) {
+  body { grid-template-columns: 1fr; }
+  .sidebar { position: relative; height: auto; border-right: none; border-bottom: 1px solid var(--border2); }
+  .main { padding: 32px 20px 60px; }
+  .hero-head { font-size: 26px; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .learn-grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track { animation: none; }
+}
+
+/* ===== IMAGE LIGHTBOX ===== */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;justify-content:center;align-items:center;padding:20px;cursor:zoom-out}
+.lightbox.show{display:flex}
+.lightbox img{max-width:95vw;max-height:95vh;object-fit:contain;border-radius:10px}
+.lightbox-close{position:absolute;top:20px;right:30px;font-size:32px;color:#fff;cursor:pointer;font-weight:bold}
+
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════════════ -->
+<aside class="sidebar">
+  <div class="photo-wrap">
+    <div class="photo-ring">
+      <div class="photo-inner">
+        <!--
+          ╔══════════════════════════════════════════╗
+          ║  CARA TAMBAH FOTO PROFIL                 ║
+          ║  1. Simpan foto di folder sama dg HTML   ║
+          ║  2. Ganti src="" → src="nama_foto.jpg"   ║
+          ║  3. Save & refresh browser               ║
+          ╚══════════════════════════════════════════╝
+        -->
+        <img id="profilePhoto" src="images/pp.jpeg" alt="Fiya Niswatus Sholihah" onload="showProfilePhoto(this)" />
+        <span class="photo-ph" id="photo-ph">👤</span>
+      </div>
+    </div>
+    <div class="s-name">Fiya Niswatus Sholihah</div>
+    <div class="s-role">Biomedical Engineer · AI/ML</div>
+  </div>
+
+  <div class="divider"></div>
+
+  <nav class="s-nav">
+    <a href="#about"><span class="dot"></span>About</a>
+    <a href="#experience"><span class="dot"></span>Experience</a>
+    <a href="#projects"><span class="dot"></span>Projects</a>
+    <a href="#training"><span class="dot"></span>Training</a>
+    <a href="#skills"><span class="dot"></span>Skills</a>
+  </nav>
+
+  <div class="divider"></div>
+
+  <p class="s-label">Contact</p>
+  <div class="contact-list">
+    <a class="c-item" href="https://www.linkedin.com/in/fiyaniswatus" target="_blank">
+      <span class="c-icon">in</span>linkedin.com/in/fiyaniswatus
+    </a>
+    <a class="c-item" href="mailto:fiyaniswatussholihah@gmail.com">
+      <span class="c-icon">✉</span>fiyaniswatussholihah@gmail.com
+    </a>
+    <a class="c-item" href="https://github.com/piyans" target="_blank">
+      <span class="c-icon">GH</span>github.com/piyans
+    </a>
+    <!-- <span class="c-item">
+      <span class="c-icon">📍</span>Kebumen, Jawa Tengah
+    </span>
+  </div> -->
+
+  <div class="divider"></div>
+
+  <p class="s-label">Education</p>
+  <div class="edu-block">
+    <strong>Universitas Airlangga</strong><br/>
+    Bachelor of Biomedical Engineering<br/>
+    GPA 3.51 / 4.00 · 2020–2024
+    <div class="award-badge">
+      <div class="award-title">🏆 1st Place — National</div>
+      <div class="award-sub">SPARK · StartUp Campus MSIB Kemendikbudristek 2023</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="s-label">Current Role</p>
+  <div class="edu-block">
+    <strong>PT Hospi Niaga Utama</strong><br/>
+    Project Assistant Research and Development<br/>
+    Medical Device Development </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p class="s-label">Technical Skills</p>
+  <div class="tag-wrap">
+    <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Deep Learning</span><span class="tag">Machine Learning</span>
+    <span class="tag">Computer Vision</span><span class="tag">NLP</span><span class="tag">Signal Processing</span>
+    <span class="tag">Medical Device R&D</span><span class="tag">Verification and Validation </span>
+    <span class="tag">Risk Management</span>
+    <span class="tag">Microsoft Office</span>
+  </div>
+
+  <p class="s-label" style="margin-top:4px">Soft Skills</p>
+  <div class="tag-wrap">
+    <span class="tag soft">Analytical Thinking</span><span class="tag soft">Problem Solving</span><span class="tag soft">Time Management</span>
+    <span class="tag soft">Detail-Oriented</span><span class="tag soft">Teamwork</span>
+    <span class="tag soft">Communication</span>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════════════ -->
+<main class="main">
+
+  <!-- ─── HERO ─── -->
+  <section class="section" id="about">
+    <div class="hero-head">
+      Biomedical Engineer<br/>
+	  Building technology that connects engineering and humanity<br/>
+      <em>Healthcare × AI</em>
+    </div>
+    <p class="hero-sub">
+      Experienced in medical device R&amp;D, computer vision, NLP, and biomedical signal processing —
+      turning engineering principles and data into impactful real-world solutions.
+    </p>
+
+    <!-- Ticker -->
+    <div class="ticker-wrap">
+      <div class="ticker-track">
+        <span class="t-item"><span class="t-dot"></span>Computer Vision</span>
+        <span class="t-item"><span class="t-dot"></span>Medical Device R&D</span>
+        <span class="t-item"><span class="t-dot"></span>Natural Language Processing</span>
+        <span class="t-item"><span class="t-dot"></span>EMG Signal Processing</span>
+        <span class="t-item"><span class="t-dot"></span>YOLO · Object Detection</span>
+        <span class="t-item"><span class="t-dot"></span>ISO 14971 Risk Management</span>
+        <span class="t-item"><span class="t-dot"></span>Product Validation</span>
+        <span class="t-item"><span class="t-dot"></span>Python · ML · Deep Learning</span>
+        <span class="t-item"><span class="t-dot"></span>Biomedical Engineering</span>
+        <span class="t-item"><span class="t-dot"></span>Computer Vision</span>
+        <span class="t-item"><span class="t-dot"></span>Medical Device R&D</span>
+        <span class="t-item"><span class="t-dot"></span>Natural Language Processing</span>
+        <span class="t-item"><span class="t-dot"></span>EMG Signal Processing</span>
+        <span class="t-item"><span class="t-dot"></span>YOLO · Object Detection</span>
+        <span class="t-item"><span class="t-dot"></span>ISO 14971 Risk Management</span>
+        <span class="t-item"><span class="t-dot"></span>Product Validation</span>
+        <span class="t-item"><span class="t-dot"></span>Python · ML · Deep Learning</span>
+        <span class="t-item"><span class="t-dot"></span>Biomedical Engineering</span>
+      </div>
+    </div>
+
+    <!-- Stats row -->
+     <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-num">7+</div>
+        <div class="stat-lbl">Project<br/></div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">3</div>
+        <div class="stat-lbl">Medical Device &amp; <br/>Monitoring System</div>
+      </div>
+      <!-- <div class="stat-card">
+        <div class="stat-num">97%</div>
+        <div class="stat-lbl">ML Accuracy<br/>(EMG Project)</div>
+      </div> -->
+    </div> 
+
+    <p class="sec-eyebrow">About Me</p>
+    <div class="about-body">
+      <p>I am a Biomedical Engineering graduate from Universitas Airlangga currently working in medical device R&amp;D, contributing to the development and validation of healthcare technologies. Through this experience, I have gained valuable insight into how technology can improve patient care and clinical workflows.</p>
+      <p>Beyond my professional role, I have developed a strong interest in Artificial Intelligence and explored it through academic projects, innovation programs, and competitions — gaining hands-on experience in Machine Learning, Computer Vision, and NLP while applying them to real-world challenges.</p>
+      <p>One of my proudest achievements was winning 1st place in the MSIB final project competition with SPARK, a parking detection system built using YOLO. I am passionate about the intersection of healthcare and technology — using AI to create meaningful, impactful solutions.</p>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCE ─── -->
+  <section class="section" id="experience">
+    <p class="sec-eyebrow">Work Experience</p>
+    <h2 class="sec-title">Professional Experience</h2>
+
+    <div class="exp-card">
+      <div class="exp-meta">
+        <div class="exp-left">
+          <div class="exp-title">Project Assistant — Research &amp; Development</div>
+          <div class="exp-company">PT Hospi Niaga Utama · Medical Device Development</div>
+        </div>
+        <span class="exp-date-badge">Sep 2025 – Present</span>
+      </div>
+      <ul class="exp-list">
+        <li>Support R&amp;D for ventilator, patient monitor, and video laryngoscope from concept evaluation through verification and validation stages.</li>
+        <li>Conducted 30+ verification, validation, and performance tests to evaluate device functionality, reliability, safety, and compliance.</li>
+        <li>Performed 10+ feasibility studies, component evaluations, and engineering assessments for product improvement and localization.</li>
+        <li>Supported TKDN localization for 6 medical device variants, achieving domestic content values of 35–43%.</li>
+        <li>Investigated technical issues and product complaints through testing, troubleshooting, and root-cause evaluation.</li>
+        <li>Prepared technical documentation: SOPs, user manuals, validation reports, risk management files, and regulatory submission documents.</li>
+        <li>Supported product registration activities for 4 medical device submissions.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-meta">
+        <div class="exp-left">
+          <div class="exp-title">Technical Support Staff — Internship</div>
+          <div class="exp-company">Universitas Airlangga Hospital (RSUA)</div>
+        </div>
+        <span class="exp-date-badge">Jan – Feb 2023</span>
+      </div>
+      <ul class="exp-list">
+        <li>Conducted observation and technical analysis of 20+ medical devices across multiple hospital departments to understand clinical applications, operational workflows, and maintenance requirements.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── PROJECTS ─── -->
+  <section class="section" id="projects">
+    <p class="sec-eyebrow">Portfolio</p>
+    <h2 class="sec-title">Projects</h2>
+
+    <!-- ══════════════════════════════════════════
+         PROJECT 1: SPARK
+    ═══════════════════════════════════════════ -->
+    <div class="project-card">
+      <!-- Header Band -->
+      <div class="proj-band">
+        <div class="proj-top-row">
+          <div class="proj-badges">
+            <span class="proj-num">Project 01</span>
+            <span class="type-badge group"><span class="type-icon">👥</span> Group Project</span>
+            <span class="comp-label">🏆 National Competition</span>
+          </div>
+          <span class="exp-date-badge">2023</span>
+        </div>
+        <div class="proj-title">SPARK: Detect Empty Parking to Make Mobilization Easier</div>
+        <!-- Role Row -->
+        <div class="role-row">
+          <span class="role-label">My Role</span>
+          <span class="role-chip"><span class="ri">💼</span> Business Analyst &amp; Business Model Development</span>
+        </div>
+      </div>
+
+      <!-- Body -->
+      <div class="proj-body">
+        <p class="proj-desc">
+          A smart parking solution using computer vision and YOLO object detection to identify available parking spaces in real-time, helping drivers reduce search time and improving overall parking space utilization.
+        </p>
+
+        <!-- ╔══════════════════════════════════════════════════════╗
+             ║  CARA TAMBAH GAMBAR — PROJECT 1 (SPARK)             ║
+             ║                                                      ║
+             ║  1. Taruh file gambar di folder yang sama dg HTML.   ║
+             ║  2. Pada setiap <img> di bawah, isi:                 ║
+             ║     src=""  →  src="nama_file.jpg"                   ║
+             ║     data-label="" → label yang muncul di bawah foto  ║
+             ║  3. Save → refresh browser. Foto muncul otomatis.   ║
+             ║  4. Placeholder teks hilang sendiri.                 ║
+             ╚══════════════════════════════════════════════════════╝ -->
+        <button class="gallery-toggle" onclick="toggleGallery('g1',this)">
+          🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
+        </button>
+        <div class="image-gallery" id="g1">
+          <div class="img-slot">
+            <img src="images/1st final juara pengumuman.jpeg" alt="1st Place Announcement" data-label="🏆 Juara 1" onload="imgLoaded(this)"/>
+            <!-- <div class="img-ph">📸<br/>src="images/1st final juara pengumuman.jpeg":<br/><code>""</code></div>-->
+          </div>
+          <div class="img-slot">
+            <img src="images/dataset spark.png" alt="SPARK Dataset" data-label="Dataset" onload="imgLoaded(this)"/>
+            <!--<div class="img-ph">📸<br/>Ganti src="":<br/><code>"Startup_campus_1.jpg"</code></div>-->
+          </div>
+          <div class="img-slot">
+            <img src="images/train spark.png" alt="SPARK Train Model" data-label="Train model" onload="imgLoaded(this)"/>
+            <!--<div class="img-ph">📸<br/>Ganti src="":<br/><code>"dataset_spark.jpg"</code></div>-->
+          </div>
+          <div class="img-slot">
+            <img src="images/bmc.png" alt="SPARK BMC" data-label="SPARK BMC" onload="imgLoaded(this)"/>
+            <div class="img-ph">📸<br/>Ganti src="":<br/><code>"train_spark.jpg"</code></div>
+          </div>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Contributions</div>
+          <ul class="proj-ul">
+            <li>Defined problem scope and structured the product documentation</li>
+            <li>Developed the Business Model Canvas — customer segments, value proposition, key partners, revenue streams, and cost structure</li>
+            <li>Conducted market and business analysis to evaluate commercial potential and real-world applicability</li>
+            <li>Contributed to dataset labelling and annotation for parking slot detection using Roboflow</li>
+            <li>Coordinated presentation materials and final project delivery</li>
+          </ul>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Impact</div>
+          <div class="impact-row">
+            <span class="imp-badge gold">🏆 1st Place — National MSIB</span>
+            <span class="imp-badge teal">90/100 Business Score</span>
+          </div>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">What I Learned</div>
+          <div class="learn-grid">
+            <div class="learn-chip">Translate AI solutions into business value and user benefits</div>
+            <div class="learn-chip">Build a business model around emerging technologies</div>
+            <div class="learn-chip">Collaborate in multidisciplinary teams (AI, data, business)</div>
+            <div class="learn-chip">Communicate product value to both technical and non-technical audiences</div>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="s-tag">YOLO</span><span class="s-tag">Computer Vision</span>
+          <span class="s-tag">Object Detection</span><span class="s-tag">Deep Learning</span>
+          <span class="s-tag">Roboflow</span><span class="s-tag">Business Model Canvas</span>
+          <span class="s-tag">Dataset Annotation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         PROJECT 2: EMG Signal Classification
+    ═══════════════════════════════════════════ -->
+    <div class="project-card">
+      <div class="proj-band">
+        <div class="proj-top-row">
+          <div class="proj-badges">
+            <span class="proj-num">Project 02</span>
+            <span class="type-badge group"><span class="type-icon">👥</span> Group Project</span>
+          </div>
+          <span class="exp-date-badge">Academic</span>
+        </div>
+        <div class="proj-title">Classification of EMG Signals on Erector Spinae Muscle to Detect Motorcycle Rider Muscle Fatigue Based on Machine Learning</div>
+        <!-- Role Row -->
+        <div class="role-row">
+          <span class="role-label">My Role</span>
+          <span class="role-chip"><span class="ri">🔬</span> Data Acquisition, Preprocessing &amp; ML Implementation</span>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p class="proj-desc">
+          Developed a machine learning system to classify fatigue vs. non-fatigue conditions using EMG signals from the erector spinae muscles of motorcycle riders — exploring fatigue detection as a supporting factor for road safety and accident prevention.
+        </p>
+
+        <!-- ╔══════════════════════════════════════════════════════╗
+             ║  CARA TAMBAH GAMBAR — PROJECT 2 (EMG)               ║
+             ║  Contoh: grafik sinyal EMG, confusion matrix, dll.  ║
+             ╚══════════════════════════════════════════════════════╝ -->
+        <button class="gallery-toggle" onclick="toggleGallery('g2',this)">
+          🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
+        </button>
+        <div class="image-gallery" id="g2">
+          <div class="img-slot">
+            <img src="images/emg.png" alt="EMG Signal Process" data-label="Data Acquisition EMG" onload="imgLoaded(this)"/>
+            <div class="img-ph">📸<br/>Ganti src="" dg nama file gambar proyek EMG</div>
+          </div>
+          <!-- <div class="img-slot">
+            <img src="" alt="EMG Classification Results" data-label="Hasil Klasifikasi" onload="imgLoaded(this)"/>
+            <div class="img-ph">📸<br/>Confusion matrix / grafik akurasi</div>
+          </div> -->
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Contributions</div>
+          <ul class="proj-ul">
+            <li>Conducted EMG data acquisition using surface electrodes and MyoWare sensors</li>
+            <li>Assisted in experimental design and data collection procedures</li>
+            <li>Performed data preprocessing, feature extraction, and dataset preparation</li>
+            <li>Implemented and evaluated machine learning classification models</li>
+            <li>Contributed to technical reporting, analysis, and project documentation</li>
+          </ul>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Impact</div>
+          <div class="impact-row">
+            <span class="imp-badge teal">97% Accuracy — XGBoost</span>
+            <span class="imp-badge purple">Fatigue Detection System</span>
+          </div>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">What I Learned</div>
+          <div class="learn-grid">
+            <div class="learn-chip">Acquire and process physiological signals for ML applications</div>
+            <div class="learn-chip">EMG signal preprocessing and feature extraction techniques</div>
+            <div class="learn-chip">End-to-end ML workflow from data collection to classification</div>
+            <div class="learn-chip">Experimental research design for biomedical data</div>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="s-tag">Machine Learning</span><span class="s-tag">Signal Processing</span>
+          <span class="s-tag">EMG</span><span class="s-tag">XGBoost</span>
+          <span class="s-tag">Feature Extraction</span><span class="s-tag">Data Acquisition</span>
+          <span class="s-tag">MyoWare Sensor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         PROJECT 3: NLP Mental Health — THESIS
+    ═══════════════════════════════════════════ -->
+    <div class="project-card">
+      <div class="proj-band">
+        <div class="proj-top-row">
+          <div class="proj-badges">
+            <span class="proj-num">Project 03</span>
+            <span class="type-badge solo"><span class="type-icon">👤</span> Individual · Undergraduate Thesis</span>
+          </div>
+          <span class="exp-date-badge">Thesis</span>
+        </div>
+        <div class="proj-title">NLP for Mental Disorder Classification Based on K-Nearest Neighbor Algorithm</div>
+        <!-- Role Row -->
+        <div class="role-row">
+          <span class="role-label">My Role</span>
+          <span class="role-chip"><span class="ri">🧑‍💻</span> Full-Stack NLP Researcher (Solo)</span>
+        </div>
+      </div>
+
+      <div class="proj-body">
+        <p class="proj-desc">
+          Developed an NLP model to classify mental health text into depression and anxiety categories. Dataset collected from real user consultations on Alodokter's "Tanya Dokter" platform, processed through a complete NLP pipeline and KNN classification algorithm.
+        </p>
+
+        <!-- ╔══════════════════════════════════════════════════════╗
+             ║  CARA TAMBAH GAMBAR — PROJECT 3 (NLP Thesis)        ║
+             ║  Contoh: diagram pipeline, visualisasi PCA, dll.    ║
+             ╚══════════════════════════════════════════════════════╝ -->
+        <button class="gallery-toggle" onclick="toggleGallery('g3',this)">
+          🖼 Lihat Foto Proyek <span class="gt-arrow">▶</span>
+        </button>
+        <div class="image-gallery" id="g3">
+          <div class="img-slot">
+            <img src="images/skripsi scope.png" alt="NLP Pipeline" data-label="NLP Pipeline" onload="imgLoaded(this)"/>
+            <div class="img-ph">📸<br/>Diagram pipeline NLP / skripsi</div>
+          </div>
+          <div class="img-slot">
+            <img src="images/skripsi rename.png" alt=" Model Evaluation" data-label="Hasil Evaluasi" onload="imgLoaded(this)"/>
+            <div class="img-ph">📸<br/>Confusion matrix / hasil KNN</div>
+          </div>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Dataset</div>
+          <div class="dataset-row">
+            <span class="ds-pill">Source: Alodokter — Tanya Dokter</span>
+            <span class="ds-pill">Raw: 2,700 posts</span>
+            <span class="ds-pill">Curated: 174 cases</span>
+            <span class="ds-pill">Labels: Depression · Anxiety</span>
+          </div>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Contributions</div>
+          <ul class="proj-ul">
+            <li>Collected text data through web crawling using Python and BeautifulSoup</li>
+            <li>Built and curated dataset from 2,700 posts via manual filtering and validation</li>
+            <li>Performed full text preprocessing: case folding, normalization, stemming, stopword removal, tokenization</li>
+            <li>Applied GloVe word embedding to transform text into numerical representations</li>
+            <li>Implemented PCA for dimensionality reduction and data visualization</li>
+            <li>Developed and evaluated KNN classification model for mental disorder classification</li>
+          </ul>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">Impact</div>
+          <div class="impact-row">
+            <span class="imp-badge teal">End-to-End NLP Pipeline</span>
+            <span class="imp-badge purple">Indonesian-Language Dataset</span>
+          </div>
+        </div>
+
+        <div class="proj-sec">
+          <div class="proj-sec-title">What I Learned</div>
+          <div class="learn-grid">
+            <div class="learn-chip">Build full NLP pipeline from raw text to model evaluation</div>
+            <div class="learn-chip">Text preprocessing and word embedding techniques (GloVe)</div>
+            <div class="learn-chip">ML applications in mental health research for Bahasa Indonesia</div>
+            <div class="learn-chip">Research writing and independent technical documentation</div>
+          </div>
+        </div>
+
+        <div class="skill-tags">
+          <span class="s-tag">NLP</span><span class="s-tag">Python</span>
+          <span class="s-tag">Web Scraping</span><span class="s-tag">BeautifulSoup</span>
+          <span class="s-tag">GloVe</span><span class="s-tag">K-Nearest Neighbor</span>
+          <span class="s-tag">PCA</span><span class="s-tag">Text Preprocessing</span>
+          <span class="s-tag">Data Analysis</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ─── TRAINING ─── -->
+  <section class="section" id="training">
+    <p class="sec-eyebrow">Certification &amp; Programs</p>
+    <h2 class="sec-title">Training &amp; Independent Study</h2>
+    <div class="training-grid">
+      <div class="tr-card">
+        <div class="tr-icon">⚕️</div>
+        <div>
+          <div class="tr-title">Medical Device Risk Management Workshop (SNI IEC 14971:2021)</div>
+          <div class="tr-org">BPAFK Jakarta</div>
+          <div class="tr-date">November 2025</div>
+          <ul class="exp-list" style="margin-top:10px">
+            <li>Risk analysis, evaluation, control, and documentation for medical devices</li>
+            <li>Strengthened understanding of quality and regulatory compliance</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-icon">🤖</div>
+        <div>
+          <div class="tr-title">Independent Study (MSIB) — Hacktive8 IBM SkillsBuild for AI &amp; Cybersecurity</div>
+          <div class="tr-org">Kemendikbudristek</div>
+          <div class="tr-date">February – July 2024</div>
+          <ul class="exp-list" style="margin-top:10px">
+            <li>Developed text classification model using Deep Learning Algorithms</li>
+            <li>Learned Python, data science, ML, NLP, and cybersecurity fundamentals</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tr-card">
+        <div class="tr-icon">🧠</div>
+        <div>
+          <div class="tr-title">Independent Study (MSIB) — StartUp Campus Track Artificial Intelligence</div>
+          <div class="tr-org">Kemendikbudristek</div>
+          <div class="tr-date">August – December 2023</div>
+          <ul class="exp-list" style="margin-top:10px">
+            <li>Developed image detection systems using YOLO Deep Learning Algorithms</li>
+            <li>Learned Git collaboration, computer vision, and AI workflow implementation</li>
+            <li>Worked collaboratively in project-based technical development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SKILLS ─── -->
+  <section class="section" id="skills">
+    <p class="sec-eyebrow">Capabilities</p>
+    <h2 class="sec-title">Skills</h2>
+    <div class="skill-grid">
+      <div class="skill-group">
+        <div class="skill-group-title">AI &amp; Machine Learning</div>
+        <div class="skill-tags-lg">
+          <span class="s-tag-lg">Python</span><span class="s-tag-lg">Machine Learning</span>
+          <span class="s-tag-lg">Deep Learning</span><span class="s-tag-lg">NLP</span>
+          <span class="s-tag-lg">Computer Vision</span><span class="s-tag-lg">YOLO</span>
+          <span class="s-tag-lg">XGBoost</span><span class="s-tag-lg">KNN</span>
+          <span class="s-tag-lg">GloVe</span><span class="s-tag-lg">PCA</span>
+          <span class="s-tag-lg">Signal Processing</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Medical Device &amp; Quality</div>
+        <div class="skill-tags-lg">
+          <span class="s-tag-lg med">Product Testing &amp; Validation</span>
+          <span class="s-tag-lg med">Risk Management (SNI IEC 14971:2021)</span>
+          <span class="s-tag-lg med">SOP &amp; Technical Documentation</span>
+          <span class="s-tag-lg med">QC/QA Support</span>
+          <span class="s-tag-lg med">Regulatory Documentation</span>
+          <span class="s-tag-lg med">TKDN Localization</span>
+          <span class="s-tag-lg med">Medical Maintenance</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Programming &amp; Tools</div>
+        <div class="skill-tags-lg">
+          <span class="s-tag-lg">C++</span><span class="s-tag-lg">Java</span>
+          <span class="s-tag-lg">Git</span><span class="s-tag-lg">Roboflow</span>
+          <span class="s-tag-lg">BeautifulSoup</span><span class="s-tag-lg">Microsoft Office</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-title">Soft Skills</div>
+        <div class="skill-tags-lg">
+          <span class="s-tag-lg soft">Analytical Thinking</span>
+          <span class="s-tag-lg soft">Problem Solving</span>
+          <span class="s-tag-lg soft">Attention to Detail</span>
+          <span class="s-tag-lg soft">Teamwork</span>
+          <span class="s-tag-lg soft">Time Management</span>
+          <span class="s-tag-lg soft">Adaptability</span>
+          <span class="s-tag-lg soft">Communication</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+function toggleGallery(id, btn) {
+  const g = document.getElementById(id);
+  const open = g.classList.toggle('visible');
+  btn.classList.toggle('open', open);
+}
+
+function imgLoaded(img) {
+  if (!img.src || img.src === window.location.href) return;
+  img.style.display = 'block';
+  img.style.cursor = 'pointer';
+  img.onclick = () => openLightbox(img.src);
+  const slot = img.closest('.img-slot');
+  const ph = slot.querySelector('.img-ph');
+  if (ph) ph.style.display = 'none';
+  let lbl = slot.querySelector('.img-slot-label');
+  if (!lbl) { lbl = document.createElement('div'); lbl.className = 'img-slot-label'; slot.appendChild(lbl); }
+  lbl.textContent = img.dataset.label || img.alt || '';
+  lbl.style.display = 'block';
+}
+
+function showProfilePhoto(img) {
+  if (!img.src || img.src === window.location.href) return;
+  img.style.display = 'block';
+  const ph = document.getElementById('photo-ph');
+  if (ph) ph.style.display = 'none';
+}
+
+/* Active nav highlight */
+const secs = document.querySelectorAll('section[id]');
+const links = document.querySelectorAll('.s-nav a');
+const io = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (e.isIntersecting) {
+      links.forEach(a => a.classList.remove('active'));
+      const a = document.querySelector(`.s-nav a[href="#${e.target.id}"]`);
+      if (a) a.classList.add('active');
+    }
+  });
+}, { threshold: 0.35 });
+secs.forEach(s => io.observe(s));
+
+function openLightbox(src){
+  const lightbox=document.getElementById('lightbox');
+  const img=document.getElementById('lightboxImg');
+  img.src=src;
+  lightbox.classList.add('show');
+}
+function closeLightbox(){
+  document.getElementById('lightbox').classList.remove('show');
+}
+
+</script>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close">&times;</span>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
+</body>
+</html>
